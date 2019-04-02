@@ -1,28 +1,26 @@
-var dodger = document.getElementById("dodger");
-
-document.addEventListener("keydown", function(e) {
-  if (e.key === "ArrowLeft") {
-    moveDodgerLeft();  
-  }
-  if (e.key === "ArrowRight") {
-    moveDodgerRight()
+let dodger = document.querySelector('#dodger')
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'ArrowLeft') {
+    moveDodgerLeft();
   }
   
-});
+  if (event.key === 'ArrowRight') {
+    moveDodgerRight();
+  }
+})
 
-function moveDodgerLeft() {
-  var leftNumbers = dodger.style.left.replace("px", "");
-  var left = parseInt(leftNumbers, 10);
- 
-  if (left > 0) {
-    dodger.style.left = `${left - 1}px`;
+function moveDodgerRight() {
+  let position = parseInt(dodger.style.left)
+  if (position <= 360) {
+    position++
+    dodger.style.left = `${position}px`
   }
 }
 
-function moveDodgerRight() {
-  var leftNumbers = dodger.style.left.replace('px', '');
-  var left = parseInt(leftNumbers, 10)
-  if (left > 0) {
-    dodger.style.left = `${left + 1}px`
+function moveDodgerLeft() {
+  let position = parseInt(dodger.style.left)
+  if (position > 0) {
+    position--
+    dodger.style.left = `${position}px`
   }
 }
